@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kristian</title>
+<style>
+ body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, #000000, #ffffff);
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&family=Lobster&family=Noto+Sans+Bamum:wght@500&family=Noto+Sans+JP:wght@700&family=Noto+Sans+KR&family=Noto+Sans+Mongolian&family=Roboto&family=Shadows+Into+Light&family=Tilt+Neon&family=Tilt+Prism&display=swap" rel="stylesheet">
+</head>
+<body id="background">
+<div>
+  <p id="id" style="">Kristian Cvelbar Bek</p>
+</div>
+<script>
+  function changeColor() {
+    var textElem = document.getElementById("id");
+    var textRect = textElem.getBoundingClientRect();
+
+    textElem.style.color = "#" + Math.floor(Math.random()*16777215).toString(16);
+    textElem.style.fontSize = Math.floor(Math.random()*100) + "px";
+	
+    var fontType = ["Lato", "Lobster", "Noto Sans Bamum", "Noto Sans JP", "Noto Sans KR", "Noto Sans Mongolian", "Roboto", "Shadows Into Light", "Tilt Neon", "Tilt Prism", "Arial", "Helvetica", "Verdana", "Tahoma", "Trebuchet MS", "Impact", "Times New Roman", "Georgia", "Courier New", "Lucida Console"];
+    var num = Math.floor(Math.random() * fontType.length);
+    textElem.style.fontFamily = fontType[num];
+	
+    // Set the position of the text within the visible window area
+    textElem.style.position = "absolute";
+    textElem.style.left = Math.max(Math.floor(Math.random() * window.innerWidth) - textRect.width, 0) + "px";
+    textElem.style.top = Math.max(Math.floor(Math.random() * window.innerHeight) - textRect.height, 0) + "px";
+	
+    // Randomly generate text shadow
+    var shadowX = Math.floor(Math.random()*5) + "px";
+    var shadowY = Math.floor(Math.random()*5) + "px";
+    var shadowBlur = Math.floor(Math.random()*5) + "px";
+    var shadowColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    var textShadow = shadowX + " " + shadowY + " " + shadowBlur + " " + shadowColor;
+    textElem.style.textShadow = textShadow;
+
+    // Randomly generate text outline
+    var outlineWidth = Math.floor(Math.random()*3) + "px";
+    var outlineColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    var textOutline = outlineWidth + " solid " + outlineColor;
+    textElem.style.textOutline = textOutline;
+	
+    // Randomly generate background gradient
+    var gradientColors = "#" + Math.floor(Math.random()*16777215).toString(16) + ", #" + Math.floor(Math.random()*16777215).toString(16);
+    var gradientDirection = Math.floor(Math.random()*360) + "deg";
+    var gradient = "linear-gradient(" + gradientDirection + ", " + gradientColors + ")";
+    document.body.style.backgroundImage = gradient;
+	
+    setTimeout(changeColor, 1000); 
+  }
+
+  changeColor(); 
+</script>
+
+</body>
+</html>
